@@ -1,0 +1,5 @@
+CI baseline probe
+
+This file only exists so the pull_request event passes the
+`paths-ignore` filter of Build All Tests. All Kotlin sources on this
+branch are byte-identical to main.
