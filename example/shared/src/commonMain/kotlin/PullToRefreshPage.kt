@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import i18n.str
 import kotlinx.coroutines.delay
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.CardDefaults
@@ -98,7 +99,7 @@ fun PullToRefreshPage(
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Popup",
+                    title = str("Popup"),
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,
@@ -114,7 +115,7 @@ fun PullToRefreshPage(
                         ) {
                             Icon(
                                 imageVector = MiuixIcons.Refresh,
-                                contentDescription = "Refresh",
+                                contentDescription = str("Refresh"),
                                 tint = MiuixTheme.colorScheme.onBackground,
                             )
                         }
@@ -167,12 +168,12 @@ fun PullToRefreshPage(
                                 onClick = { showSettings = true },
                             ) {
                                 Text(
-                                    text = "Pull Progress: ${(currentPullProgress * 100).toInt()}%",
+                                    text = "${ str("Pull Progress") }: ${(currentPullProgress * 100).toInt()}%",
                                     style = MiuixTheme.textStyles.body1,
                                     color = MiuixTheme.colorScheme.onSurface,
                                 )
                                 Text(
-                                    text = "Threshold: ${(thresholdValue * 100).toInt()}%",
+                                    text = "${ str("Threshold") }: ${(thresholdValue * 100).toInt()}%",
                                     style = MiuixTheme.textStyles.body2,
                                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                                 )
@@ -198,7 +199,7 @@ fun PullToRefreshPage(
                             ) {
                                 if (i % 2 == 0) {
                                     OverlayDropdownPreference(
-                                        title = "OverlayDropdownPref ${i + 1}",
+                                        title = "${ str("OverlayDropdownPref") } ${i + 1}",
                                         items = dropdownOptions,
                                         selectedIndex = dropdownSelectedOption,
                                         onSelectedIndexChange = { newOption ->
@@ -207,7 +208,7 @@ fun PullToRefreshPage(
                                     )
                                 } else {
                                     WindowDropdownPreference(
-                                        title = "WindowDropdownPref ${i + 1}",
+                                        title = "${ str("WindowDropdownPref") } ${i + 1}",
                                         items = dropdownOptions,
                                         selectedIndex = dropdownSelectedOption,
                                         onSelectedIndexChange = { newOption ->
@@ -229,7 +230,7 @@ fun PullToRefreshPage(
     }
 
     WindowBottomSheet(
-        title = "PullToRefresh Settings",
+        title = str("PullToRefresh Settings"),
         show = showSettings,
         onDismissRequest = { showSettings = false },
     ) {
@@ -240,11 +241,11 @@ fun PullToRefreshPage(
             ),
         ) {
             SliderPreference(
-                title = "Refresh Threshold",
+                title = str("Refresh Threshold"),
                 summary = if (thresholdValue == 0f) {
-                    "Any pull triggers refresh."
+                    str("Any pull triggers refresh.")
                 } else {
-                    "Pull ${(thresholdValue * 100).toInt()}% of the drag range to refresh."
+                    "${ str("Pull") } ${(thresholdValue * 100).toInt()}% ${ str("of the drag range to refresh.") }"
                 },
                 value = thresholdValue,
                 onValueChange = { thresholdValue = it },

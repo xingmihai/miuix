@@ -25,6 +25,7 @@ import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import i18n.str
 import top.yukonga.miuix.kmp.basic.ButtonDefaults
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.SmallTitle
@@ -51,15 +52,15 @@ fun LazyListScope.dialogSection() {
         var showCenteredDialog by rememberSaveable { mutableStateOf(false) }
         var centeredDialogHoldDown by rememberSaveable { mutableStateOf(false) }
 
-        SmallTitle(text = "Dialog")
+        SmallTitle(text = str("Dialog"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
         ) {
             ArrowPreference(
-                title = "Dialog (O)",
-                summary = "Click to show an OverlayDialog",
+                title = str("Dialog (O)"),
+                summary = str("Click to show an OverlayDialog"),
                 onClick = {
                     showOverlayDialog = true
                     overlayDialogHoldDown = true
@@ -67,8 +68,8 @@ fun LazyListScope.dialogSection() {
                 holdDownState = overlayDialogHoldDown,
             )
             ArrowPreference(
-                title = "Dialog (W)",
-                summary = "Click to show a WindowDialog",
+                title = str("Dialog (W)"),
+                summary = str("Click to show a WindowDialog"),
                 onClick = {
                     showWindowDialog = true
                     windowDialogHoldDown = true
@@ -76,7 +77,7 @@ fun LazyListScope.dialogSection() {
                 holdDownState = windowDialogHoldDown,
             )
             ArrowPreference(
-                title = "Wide Dialog (O)",
+                title = str("Wide Dialog (O)"),
                 summary = "Portrait shows a regular dialog; landscape shows a two-column dialog",
                 onClick = {
                     showWideSuperDialog = true
@@ -85,7 +86,7 @@ fun LazyListScope.dialogSection() {
                 holdDownState = wideSuperDialogHoldDown,
             )
             ArrowPreference(
-                title = "Wide Dialog (W)",
+                title = str("Wide Dialog (W)"),
                 summary = "Portrait shows a regular dialog; landscape shows a two-column dialog",
                 onClick = {
                     showWideWindowDialog = true
@@ -94,7 +95,7 @@ fun LazyListScope.dialogSection() {
                 holdDownState = wideWindowDialogHoldDown,
             )
             ArrowPreference(
-                title = "Centered Dialog (O)",
+                title = str("Centered Dialog (O)"),
                 summary = "Force the large-screen presentation with largeScreen = true",
                 onClick = {
                     showCenteredDialog = true
@@ -140,8 +141,8 @@ private fun OverlayDialogDemo(
 ) {
     OverlayDialog(
         show = show,
-        title = "Dialog (O)",
-        summary = "A dialog component inside MiuixPopupHost.",
+        title = str("Dialog (O)"),
+        summary = str("A dialog component inside MiuixPopupHost."),
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         content = {
@@ -149,13 +150,13 @@ private fun OverlayDialogDemo(
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 TextButton(
-                    text = "Cancel",
+                    text = str("Cancel"),
                     onClick = onDismissRequest,
                     modifier = Modifier.weight(1f),
                 )
                 Spacer(Modifier.width(20.dp))
                 TextButton(
-                    text = "Confirm",
+                    text = str("Confirm"),
                     onClick = onDismissRequest,
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.textButtonColorsPrimary(),
@@ -173,8 +174,8 @@ private fun WindowDialogDemo(
 ) {
     WindowDialog(
         show = show,
-        title = "Dialog (W)",
-        summary = "A window-level dialog, no MiuixPopupHost required.",
+        title = str("Dialog (W)"),
+        summary = str("A window-level dialog, no MiuixPopupHost required."),
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         content = {
@@ -183,13 +184,13 @@ private fun WindowDialogDemo(
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 TextButton(
-                    text = "Cancel",
+                    text = str("Cancel"),
                     onClick = { dismissState?.invoke() },
                     modifier = Modifier.weight(1f),
                 )
                 Spacer(Modifier.width(20.dp))
                 TextButton(
-                    text = "Confirm",
+                    text = str("Confirm"),
                     onClick = { dismissState?.invoke() },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.textButtonColorsPrimary(),
@@ -207,7 +208,7 @@ private fun CenteredOverlayDialogDemo(
 ) {
     OverlayDialog(
         show = show,
-        title = "Centered Dialog",
+        title = str("Centered Dialog"),
         summary = "largeScreen = true forces the centered presentation on any window size.",
         largeScreen = true,
         onDismissRequest = onDismissRequest,
@@ -217,13 +218,13 @@ private fun CenteredOverlayDialogDemo(
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 TextButton(
-                    text = "Cancel",
+                    text = str("Cancel"),
                     onClick = onDismissRequest,
                     modifier = Modifier.weight(1f),
                 )
                 Spacer(Modifier.width(20.dp))
                 TextButton(
-                    text = "Confirm",
+                    text = str("Confirm"),
                     onClick = onDismissRequest,
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.textButtonColorsPrimary(),
@@ -244,8 +245,8 @@ private fun WideSuperDialogDemo(
 
     OverlayDialog(
         show = show,
-        title = if (isLandscape) null else "Wide Dialog",
-        summary = if (isLandscape) null else "Rotate to landscape to see the effect.",
+        title = if (isLandscape) null else str("Wide Dialog"),
+        summary = if (isLandscape) null else str("Rotate to landscape to see the effect."),
         maxWidth = if (isLandscape) 560.dp else DialogDefaults.MaxWidth,
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
@@ -266,8 +267,8 @@ private fun WideWindowDialogDemo(
 
     WindowDialog(
         show = show,
-        title = if (isLandscape) null else "Wide Dialog",
-        summary = if (isLandscape) null else "Rotate to landscape to see the effect.",
+        title = if (isLandscape) null else str("Wide Dialog"),
+        summary = if (isLandscape) null else str("Rotate to landscape to see the effect."),
         maxWidth = if (isLandscape) 560.dp else DialogDefaults.MaxWidth,
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
@@ -298,7 +299,7 @@ private fun WideDialogContent(
             ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "Wide Dialog",
+                    text = str("Wide Dialog"),
                     style = MiuixTheme.textStyles.title4,
                     color = MiuixTheme.colorScheme.onBackground,
                     fontWeight = FontWeight.Medium,
@@ -307,7 +308,7 @@ private fun WideDialogContent(
                 Spacer(Modifier.height(8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "Rotate to landscape to see the effect.",
+                    text = str("Rotate to landscape to see the effect."),
                     style = MiuixTheme.textStyles.body1,
                     color = MiuixTheme.colorScheme.onSurfaceSecondary,
                     textAlign = TextAlign.Center,
@@ -330,18 +331,18 @@ private fun WideDialogContent(
                 ),
             ) {
                 TextButton(
-                    text = "Allow Once",
+                    text = str("Allow Once"),
                     onClick = { dismissState?.invoke() },
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.textButtonColorsPrimary(),
                 )
                 TextButton(
-                    text = "Always Allow",
+                    text = str("Always Allow"),
                     onClick = { dismissState?.invoke() },
                     modifier = Modifier.fillMaxWidth(),
                 )
                 TextButton(
-                    text = "Deny",
+                    text = str("Deny"),
                     onClick = { dismissState?.invoke() },
                     modifier = Modifier.fillMaxWidth(),
                 )
@@ -352,18 +353,18 @@ private fun WideDialogContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             TextButton(
-                text = "Allow Once",
+                text = str("Allow Once"),
                 onClick = { dismissState?.invoke() },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.textButtonColorsPrimary(),
             )
             TextButton(
-                text = "Always Allow",
+                text = str("Always Allow"),
                 onClick = { dismissState?.invoke() },
                 modifier = Modifier.fillMaxWidth(),
             )
             TextButton(
-                text = "Deny",
+                text = str("Deny"),
                 onClick = { dismissState?.invoke() },
                 modifier = Modifier.fillMaxWidth(),
             )

@@ -15,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.BreadcrumbBar
 import top.yukonga.miuix.kmp.basic.BreadcrumbItem
 import top.yukonga.miuix.kmp.basic.Card
@@ -25,12 +27,12 @@ import top.yukonga.miuix.kmp.theme.MiuixTheme
 
 fun LazyListScope.breadcrumbBarSection() {
     item(key = "breadcrumbBar") {
-        SmallTitle(text = "BreadcrumbBar")
-        val items = remember {
+        SmallTitle(text = str("BreadcrumbBar"))
+        val items = remember(appLanguage) {
             listOf(
                 BreadcrumbItem(
                     path = "/storage/emulated/0",
-                    text = "Internal storage",
+                    text = str("Internal storage"),
                 ),
                 BreadcrumbItem(path = "DataBackup"),
                 BreadcrumbItem(path = "apps"),
@@ -64,11 +66,11 @@ fun LazyListScope.breadcrumbBarSection() {
                     modifier = Modifier.fillMaxWidth(),
                 )
                 Text(
-                    text = "Full path: ${items.joinToPath()}",
+                    text = "${ str("Full path") }: ${items.joinToPath()}",
                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 Text(
-                    text = "Current: ${items.subList(0, highlightIndex + 1).joinToPath()}",
+                    text = "${ str("Current") }: ${items.subList(0, highlightIndex + 1).joinToPath()}",
                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 BreadcrumbBar(

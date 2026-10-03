@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.SmallTitle
 import top.yukonga.miuix.kmp.basic.Switch
@@ -32,7 +33,7 @@ fun LazyListScope.switchSection() {
         val superSwitchState = remember { mutableStateOf(false) }
         val superSwitchAnimState = remember { mutableStateOf(false) }
 
-        SmallTitle(text = "Switch")
+        SmallTitle(text = str("Switch"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
@@ -67,8 +68,8 @@ fun LazyListScope.switchSection() {
                 )
             }
             SwitchPreference(
-                title = "Switch",
-                summary = "Click to expand a Switch",
+                title = str("Switch"),
+                summary = str("Click to expand a Switch"),
                 checked = superSwitchAnimState.value,
                 onCheckedChange = {
                     superSwitchAnimState.value = it
@@ -81,7 +82,7 @@ fun LazyListScope.switchSection() {
                 exit = fadeOut() + shrinkVertically(),
             ) {
                 SwitchPreference(
-                    title = "Switch",
+                    title = str("Switch"),
                     checked = superSwitchState.value,
                     endActions = {
                         Text(
@@ -96,7 +97,7 @@ fun LazyListScope.switchSection() {
                 )
             }
             SwitchPreference(
-                title = "Disabled Switch",
+                title = str("Disabled Switch"),
                 checked = true,
                 enabled = false,
                 onCheckedChange = {},

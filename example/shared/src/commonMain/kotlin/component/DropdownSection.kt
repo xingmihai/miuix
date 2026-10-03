@@ -12,6 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.DropdownEntry
 import top.yukonga.miuix.kmp.basic.DropdownItem
@@ -25,21 +27,23 @@ fun LazyListScope.dropdownSection() {
         var windowDropdownOptionSelected by remember { mutableIntStateOf(0) }
         var overlayExpanded by remember { mutableStateOf(false) }
         var windowExpanded by remember { mutableStateOf(false) }
-        val dropdownOptions = remember { listOf("Option 1", "Option 2", "Option 3", "Option 4") }
-        val dropdownLongOptions = remember {
+        val dropdownOptions = remember(appLanguage) {
+            listOf(str("Option 1"), str("Option 2"), str("Option 3"), str("Option 4"))
+        }
+        val dropdownLongOptions = remember(appLanguage) {
             listOf(
-                "Option 1",
-                "Long Option 2",
-                "Long Long Option 3",
-                "Long Long Long Option 4",
-                "Long Long Long Long Option 5",
-                "Long Long Long Long Long Option 6",
-                "Long Long Long Long Long Long Option 7",
-                "Long Long Long Long Long Long Long Option 8",
-                "Long Long Long Long Long Long Long Long Option 9",
-                "Long Long Long Long Long Long Long Long Long Option 10",
-                "Long Long Long Long Long Long Long Long Long Long Option 11",
-                "Long Long Long Long Long Long Long Long Long Long Long Option 12",
+                str("Option 1"),
+                str("Long Option 2"),
+                str("Long Long Option 3"),
+                str("Long Long Long Option 4"),
+                str("Long Long Long Long Option 5"),
+                str("Long Long Long Long Long Option 6"),
+                str("Long Long Long Long Long Long Option 7"),
+                str("Long Long Long Long Long Long Long Option 8"),
+                str("Long Long Long Long Long Long Long Long Option 9"),
+                str("Long Long Long Long Long Long Long Long Long Option 10"),
+                str("Long Long Long Long Long Long Long Long Long Long Option 11"),
+                str("Long Long Long Long Long Long Long Long Long Long Long Option 12"),
             )
         }
 
@@ -131,15 +135,15 @@ fun LazyListScope.dropdownSection() {
             )
         }
 
-        SmallTitle(text = "Dropdown")
+        SmallTitle(text = str("Dropdown"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
         ) {
             OverlayDropdownPreference(
-                title = "DropdownPref (O)",
-                summary = if (overlayExpanded) "Expanded" else "Collapsed",
+                title = str("DropdownPref (O)"),
+                summary = if (overlayExpanded) str("Expanded") else str("Collapsed"),
                 items = dropdownOptions,
                 selectedIndex = overlayDropdownOptionSelected,
                 onSelectedIndexChange = { newOption ->
@@ -148,8 +152,8 @@ fun LazyListScope.dropdownSection() {
                 onExpandedChange = { overlayExpanded = it },
             )
             WindowDropdownPreference(
-                title = "DropdownPref (W)",
-                summary = if (windowExpanded) "Expanded" else "Collapsed",
+                title = str("DropdownPref (W)"),
+                summary = if (windowExpanded) str("Expanded") else str("Collapsed"),
                 items = dropdownLongOptions,
                 selectedIndex = windowDropdownOptionSelected,
                 onSelectedIndexChange = { newOption ->
@@ -158,28 +162,28 @@ fun LazyListScope.dropdownSection() {
                 onExpandedChange = { windowExpanded = it },
             )
             OverlayDropdownPreference(
-                title = "Grouped DropdownPref (O)",
-                summary = if (overlayGroupedExpanded) "Expanded" else "Collapsed",
+                title = str("Grouped DropdownPref (O)"),
+                summary = if (overlayGroupedExpanded) str("Expanded") else str("Collapsed"),
                 entries = overlayMultiGroupOptions,
                 collapseOnSelection = false,
                 onExpandedChange = { overlayGroupedExpanded = it },
             )
             WindowDropdownPreference(
-                title = "Grouped DropdownPref (W)",
-                summary = if (windowGroupedExpanded) "Expanded" else "Collapsed",
+                title = str("Grouped DropdownPref (W)"),
+                summary = if (windowGroupedExpanded) str("Expanded") else str("Collapsed"),
                 entries = windowMultiGroupOptions,
                 collapseOnSelection = false,
                 onExpandedChange = { windowGroupedExpanded = it },
             )
             OverlayDropdownPreference(
-                title = "Disabled DropdownPref (O)",
+                title = str("Disabled DropdownPref (O)"),
                 items = listOf("Option 1"),
                 selectedIndex = 0,
                 onSelectedIndexChange = {},
                 enabled = false,
             )
             WindowDropdownPreference(
-                title = "Disabled DropdownPref (W)",
+                title = str("Disabled DropdownPref (W)"),
                 items = listOf("Option 1"),
                 selectedIndex = 0,
                 onSelectedIndexChange = {},

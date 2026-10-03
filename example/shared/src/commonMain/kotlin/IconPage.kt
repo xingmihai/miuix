@@ -41,6 +41,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import component.SearchBarFake
 import component.SearchPager
+import i18n.AppLanguage
+import i18n.appLanguage
+import i18n.str
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import top.yukonga.miuix.kmp.basic.BasicComponent
@@ -85,16 +88,18 @@ fun IconsPage(
     }
 
     // Search state
-    var searchStatus by remember { mutableStateOf(SearchStatus(label = "Search icons")) }
+    var searchStatus by remember(appLanguage) { mutableStateOf(SearchStatus(label = str("Search icons"))) }
     val updateSearchStatus: (SearchStatus) -> Unit = { searchStatus = it }
     var searchOffsetY by remember { mutableStateOf(0.dp) }
 
     // Icon data
     val allIcons = remember { MiuixIcons.All }
     val regularIcons = remember(allIcons) { allIcons["Regular"] ?: emptyList() }
-    val weightVariants: List<Pair<String, List<ImageVector>>> = remember(allIcons) {
-        listOf("Light", "Normal", "Regular", "Medium", "Demibold").map { name ->
-            name to (allIcons[name] ?: emptyList())
+    // 字重名既是 allIcons 的键，也直接展示给用户，这里单独做中文映射，避免与「浅色 / 标准」等通用词义冲突
+    val weightVariants: List<Pair<String, List<ImageVector>>> = remember(allIcons, appLanguage) {
+        listOf("Light", "Normal", "Regular", "Medium", "Demibold").map { raw ->
+            (if (appLanguage == AppLanguage.Chinese) WEIGHT_ZH[raw] ?: raw else raw) to
+                (allIcons[raw] ?: emptyList())
         }
     }
     val iconNames = remember(regularIcons) { regularIcons.map { it.name.substringBefore(".") } }
@@ -144,7 +149,7 @@ fun IconsPage(
             BlurredBar(backdrop, blurActive) {
                 searchStatus.TopAppBarAnim(backgroundColor = barColor) {
                     AdaptiveTopAppBar(
-                        title = "Icon",
+                        title = str("Icon"),
                         showTopAppBar = appState.showTopAppBar,
                         isWideScreen = isWideScreen,
                         scrollBehavior = topAppBarScrollBehavior,
@@ -255,13 +260,13 @@ fun IconsPage(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(
-                            text = "Name",
+                            text = str("Name"),
                             modifier = Modifier.weight(1f),
                             style = MiuixTheme.textStyles.footnote1,
                             color = colorScheme.onSurfaceVariantActions,
                         )
                         Text(
-                            text = "Tap to compare weights",
+                            text = str("Tap to compare weights"),
                             style = MiuixTheme.textStyles.footnote2,
                             color = colorScheme.onSurfaceVariantActions,
                         )
@@ -306,7 +311,7 @@ fun IconsPage(
                             Spacer(modifier = Modifier.size(8.dp))
                             Icon(
                                 imageVector = if (expanded) MiuixIcons.ExpandLess else MiuixIcons.ExpandMore,
-                                contentDescription = if (expanded) "Collapse" else "Expand",
+                                contentDescription = if (expanded) str("Collapse") else str("Expand"),
                                 tint = colorScheme.onSurfaceVariantActions,
                                 modifier = Modifier.size(18.dp),
                             )
@@ -353,3 +358,11 @@ fun IconsPage(
         }
     }
 }
+
+private val WEIGHT_ZH = mapOf(
+    "Light" to "细体",
+    "Normal" to "常规",
+    "Regular" to "标准",
+    "Medium" to "中粗",
+    "Demibold" to "半粗",
+)

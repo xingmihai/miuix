@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import i18n.str
 import kotlinx.serialization.Serializable
 import navigation.Route
 import top.yukonga.miuix.kmp.basic.BasicComponent
@@ -82,7 +83,7 @@ fun NestedNavTestPage(padding: PaddingValues) {
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Nested Navigation",
+                    title = str("Nested Navigation"),
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,
@@ -117,13 +118,13 @@ fun NestedNavTestPage(padding: PaddingValues) {
             ) {
                 item(key = "nested_hint") {
                     Column {
-                        SmallTitle(text = "Back semantics")
+                        SmallTitle(text = str("Back semantics"))
                         Card(modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp)) {
                             BasicComponent(
-                                title = "One back stream, nested",
-                                summary = "System back pops the inner stack below first. At inner " +
-                                    "level 1 it falls through and pops this page. While another " +
-                                    "page covers this one, back never touches the inner stack.",
+                                title = str("One back stream, nested"),
+                                summary = str("System back pops the inner stack below first. At inner ") +
+                                    str("level 1 it falls through and pops this page. While another ") +
+                                    str("page covers this one, back never touches the inner stack."),
                             )
                         }
                     }
@@ -131,7 +132,7 @@ fun NestedNavTestPage(padding: PaddingValues) {
                 item(key = "nested_stack") {
                     val innerBackStack = rememberNavBackStack<InnerRoute>(InnerRoute.Level(1))
                     Column {
-                        SmallTitle(text = "Inner stack")
+                        SmallTitle(text = str("Inner stack"))
                         Card(
                             modifier = Modifier
                                 .padding(horizontal = 12.dp)
@@ -185,19 +186,19 @@ private fun InnerLevelContent(
     ) {
         SmallTitle(text = "Level ${List(depth) { it + 1 }.joinToString(" / ")}")
         ArrowPreference(
-            title = "Push inner level",
-            summary = "System back pops it before this page",
+            title = str("Push inner level"),
+            summary = str("System back pops it before this page"),
             onClick = onPushInner,
         )
         if (depth > 1) {
             ArrowPreference(
-                title = "Pop inner level",
+                title = str("Pop inner level"),
                 onClick = onPopInner,
             )
         }
         ArrowPreference(
-            title = "Push an outer page on top",
-            summary = "Back then pops the outer page, not this stack",
+            title = str("Push an outer page on top"),
+            summary = str("Back then pops the outer page, not this stack"),
             onClick = onPushOuter,
         )
     }

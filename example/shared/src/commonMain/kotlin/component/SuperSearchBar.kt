@@ -60,6 +60,7 @@ import androidx.compose.ui.zIndex
 import androidx.navigationevent.NavigationEventInfo
 import androidx.navigationevent.compose.NavigationBackHandler
 import androidx.navigationevent.compose.rememberNavigationEventState
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.InputField
 import top.yukonga.miuix.kmp.basic.Text
@@ -167,7 +168,7 @@ fun SearchStatus.SearchPager(
                 exit = shrinkHorizontally() + slideOutHorizontally(targetOffsetX = { it }),
             ) {
                 Text(
-                    text = "Cancel",
+                    text = str("Cancel"),
                     fontWeight = FontWeight.Bold,
                     color = MiuixTheme.colorScheme.primary,
                     modifier = Modifier
@@ -260,7 +261,7 @@ fun SearchBar(
                 Icon(
                     imageVector = MiuixIcons.Basic.SearchCleanup,
                     tint = MiuixTheme.colorScheme.onSurface,
-                    contentDescription = "Clean",
+                    contentDescription = str("Clean"),
                     modifier = Modifier
                         .size(44.dp)
                         .padding(start = 8.dp, end = 16.dp)
@@ -310,7 +311,7 @@ fun SearchBarFake(
         leadingIcon = {
             Icon(
                 imageVector = MiuixIcons.Basic.Search,
-                contentDescription = "Search",
+                contentDescription = str("Search"),
                 modifier = Modifier
                     .size(44.dp)
                     .padding(start = 16.dp, end = 8.dp),

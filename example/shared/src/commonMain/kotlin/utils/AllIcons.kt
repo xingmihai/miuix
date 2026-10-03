@@ -4,6 +4,7 @@
 package utils
 
 import androidx.compose.ui.graphics.vector.ImageVector
+import i18n.str
 import top.yukonga.miuix.kmp.icon.MiuixIcons
 import top.yukonga.miuix.kmp.icon.extended.Add
 import top.yukonga.miuix.kmp.icon.extended.AddCircle
@@ -164,7 +165,7 @@ import top.yukonga.miuix.kmp.icon.extended.ZoomOut
 
 val MiuixIcons.All: Map<String, List<ImageVector>>
     get() = mapOf(
-        "Light" to listOf(
+        str("Light") to listOf(
             MiuixIcons.Light.Add,
             MiuixIcons.Light.AddCircle,
             MiuixIcons.Light.AddFolder,

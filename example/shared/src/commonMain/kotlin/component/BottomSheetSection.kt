@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.CardDefaults
 import top.yukonga.miuix.kmp.basic.Icon
@@ -53,15 +54,15 @@ fun LazyListScope.bottomSheetSection() {
         var bottomSheetDropdownSelectedOption by remember { mutableIntStateOf(0) }
         var bottomSheetSuperSwitchState by remember { mutableStateOf(true) }
 
-        SmallTitle(text = "BottomSheet")
+        SmallTitle(text = str("BottomSheet"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
         ) {
             ArrowPreference(
-                title = "BottomSheet (O)",
-                summary = "Click to show an OverlayBottomSheet",
+                title = str("BottomSheet (O)"),
+                summary = str("Click to show an OverlayBottomSheet"),
                 onClick = {
                     showSuperBottomSheet = true
                     superBottomSheetHoldDown = true
@@ -69,8 +70,8 @@ fun LazyListScope.bottomSheetSection() {
                 holdDownState = superBottomSheetHoldDown,
             )
             ArrowPreference(
-                title = "BottomSheet (W)",
-                summary = "Click to show a WindowBottomSheet",
+                title = str("BottomSheet (W)"),
+                summary = str("Click to show a WindowBottomSheet"),
                 onClick = {
                     showWindowBottomSheet = true
                     windowBottomSheetHoldDown = true
@@ -114,17 +115,17 @@ private fun SuperBottomSheetDemo(
     var enableNestedScroll by remember { mutableStateOf(true) }
 
     OverlayBottomSheet(
-        title = "BottomSheet (O)",
+        title = str("BottomSheet (O)"),
         show = show,
         allowDismiss = allowDismiss,
         enableNestedScroll = enableNestedScroll,
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         startAction = {
-            BottomSheetActionButton(MiuixIcons.Close, "Cancel", onClick = onDismissRequest)
+            BottomSheetActionButton(MiuixIcons.Close, str("Cancel"), onClick = onDismissRequest)
         },
         endAction = {
-            BottomSheetActionButton(MiuixIcons.Ok, "Confirm", onClick = onDismissRequest)
+            BottomSheetActionButton(MiuixIcons.Ok, str("Confirm"), onClick = onDismissRequest)
         },
     ) {
         BottomSheetContent(
@@ -136,7 +137,7 @@ private fun SuperBottomSheetDemo(
             onSwitchCheckedChange = onSwitchCheckedChange,
         ) {
             OverlayDropdownPreference(
-                title = "DropdownPref (O)",
+                title = str("DropdownPref (O)"),
                 items = BottomSheetDropdownOptions,
                 selectedIndex = dropdownSelectedIndex,
                 onSelectedIndexChange = onDropdownSelectedIndexChange,
@@ -159,7 +160,7 @@ private fun WindowBottomSheetDemo(
     var enableNestedScroll by remember { mutableStateOf(true) }
 
     WindowBottomSheet(
-        title = "BottomSheet (W)",
+        title = str("BottomSheet (W)"),
         show = show,
         allowDismiss = allowDismiss,
         enableNestedScroll = enableNestedScroll,
@@ -167,11 +168,11 @@ private fun WindowBottomSheetDemo(
         onDismissFinished = onDismissFinished,
         startAction = {
             val dismissState = LocalDismissState.current
-            BottomSheetActionButton(MiuixIcons.Close, "Cancel", onClick = { dismissState?.invoke() })
+            BottomSheetActionButton(MiuixIcons.Close, str("Cancel"), onClick = { dismissState?.invoke() })
         },
         endAction = {
             val dismissState = LocalDismissState.current
-            BottomSheetActionButton(MiuixIcons.Ok, "Confirm", onClick = { dismissState?.invoke() })
+            BottomSheetActionButton(MiuixIcons.Ok, str("Confirm"), onClick = { dismissState?.invoke() })
         },
     ) {
         BottomSheetContent(
@@ -183,7 +184,7 @@ private fun WindowBottomSheetDemo(
             onSwitchCheckedChange = onSwitchCheckedChange,
         ) {
             WindowDropdownPreference(
-                title = "DropdownPref (W)",
+                title = str("DropdownPref (W)"),
                 items = BottomSheetDropdownOptions,
                 selectedIndex = dropdownSelectedIndex,
                 onSelectedIndexChange = onDropdownSelectedIndexChange,
@@ -213,7 +214,7 @@ private fun BottomSheetContent(
     ) {
         item {
             SmallTitle(
-                text = "Behavior Settings",
+                text = str("Behavior Settings"),
                 insideMargin = PaddingValues(16.dp, 8.dp),
             )
             Card(
@@ -223,14 +224,14 @@ private fun BottomSheetContent(
                 ),
             ) {
                 SwitchPreference(
-                    title = "Allow Dismiss",
-                    summary = "Drag or Back to dismiss",
+                    title = str("Allow Dismiss"),
+                    summary = str("Drag or Back to dismiss"),
                     checked = allowDismiss,
                     onCheckedChange = onAllowDismissChange,
                 )
                 SwitchPreference(
-                    title = "Enable NestedScroll",
-                    summary = "Scroll content vs Drag sheet",
+                    title = str("Enable NestedScroll"),
+                    summary = str("Scroll content vs Drag sheet"),
                     checked = enableNestedScroll,
                     onCheckedChange = onEnableNestedScrollChange,
                 )
@@ -241,7 +242,7 @@ private fun BottomSheetContent(
             TextField(
                 value = textFieldValue,
                 onValueChange = { textFieldValue = it },
-                label = "TextField",
+                label = str("TextField"),
                 modifier = Modifier.padding(bottom = 12.dp),
             )
             Card(
@@ -252,7 +253,7 @@ private fun BottomSheetContent(
             ) {
                 dropdown()
                 SwitchPreference(
-                    title = "SwitchPref",
+                    title = str("SwitchPref"),
                     checked = switchChecked,
                     onCheckedChange = onSwitchCheckedChange,
                 )
