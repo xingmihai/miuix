@@ -84,7 +84,7 @@ private fun ProgressiveBlurDemo() {
     var curve by remember { mutableFloatStateOf(1f) }
 
     val isInDark = isInDarkTheme()
-    val blendConfigs = remember(isInDark) {
+    val blendConfigs = remember(isInDark, appLanguage) {
         listOf(
             str("None") to emptyList(),
             str("Info Thin") to if (isInDark) ColorBlendToken.Info_Thin_Dark else ColorBlendToken.Info_Thin_Light,
@@ -245,7 +245,7 @@ private fun BlurDemo() {
         tiltDriven = tiltDriven,
     )
 
-    val blendConfigs = remember(isInDark, surface) {
+    val blendConfigs = remember(isInDark, surface, appLanguage) {
         listOf(
             str("None") to emptyList(),
             str("Info Thin") to if (isInDark) ColorBlendToken.Info_Thin_Dark else ColorBlendToken.Info_Thin_Light,
@@ -412,7 +412,7 @@ private fun ForegroundBlurDemo() {
             )
         }
     }
-    val blendConfigs = remember(isInDark, onBackground) {
+    val blendConfigs = remember(isInDark, onBackground, appLanguage) {
         listOf(
             str("None") to emptyList(),
             str("Logo Blend") to logoBlend,

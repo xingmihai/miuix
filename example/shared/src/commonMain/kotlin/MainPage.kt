@@ -213,7 +213,7 @@ fun MainPage(
             ),
         )
     }
-    val multiSelectItems = remember(multiSelectedItems) {
+    val multiSelectItems = remember(multiSelectedItems, appLanguage) {
         listOf(
             DropdownEntry(
                 items = listOf(
