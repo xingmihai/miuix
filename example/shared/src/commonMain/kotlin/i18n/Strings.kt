@@ -461,11 +461,9 @@ fun str(text: String): String = if (appLanguage == AppLanguage.Chinese) ZH[text]
 /**
  * Translate every item of a list, keeping the original order (index-safe).
  */
-fun strList(items: List<String>): List<String> =
-    if (appLanguage == AppLanguage.Chinese) items.map { ZH[it] ?: it } else items
+fun strList(items: List<String>): List<String> = if (appLanguage == AppLanguage.Chinese) items.map { ZH[it] ?: it } else items
 
 /**
  * Translate an array, keeping the original order (index-safe).
  */
-fun strArray(items: Array<String>): List<String> =
-    if (appLanguage == AppLanguage.Chinese) items.map { ZH[it] ?: it } else items.toList()
+fun strArray(items: Array<String>): List<String> = if (appLanguage == AppLanguage.Chinese) items.map { ZH[it] ?: it } else items.toList()
