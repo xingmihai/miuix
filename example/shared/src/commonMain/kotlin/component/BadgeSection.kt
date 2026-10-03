@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,7 +27,7 @@ import top.yukonga.miuix.kmp.icon.extended.Settings
 
 fun LazyListScope.badgeSection() {
     item(key = "badge") {
-        SmallTitle(text = "Badge")
+        SmallTitle(text = str("Badge"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
@@ -44,28 +45,28 @@ fun LazyListScope.badgeSection() {
                     BadgedBox(badge = { Badge() }) {
                         Icon(
                             imageVector = MiuixIcons.Messages,
-                            contentDescription = "Messages",
+                            contentDescription = str("Messages"),
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("8") } }) {
                         Icon(
                             imageVector = MiuixIcons.Email,
-                            contentDescription = "Email",
+                            contentDescription = str("Email"),
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("99+") } }) {
                         Icon(
                             imageVector = MiuixIcons.Settings,
-                            contentDescription = "Settings",
+                            contentDescription = str("Settings"),
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("5") } }) {
                         Icon(
                             imageVector = MiuixIcons.Favorites,
-                            contentDescription = "Favorites",
+                            contentDescription = str("Favorites"),
                             modifier = Modifier.size(28.dp),
                         )
                     }

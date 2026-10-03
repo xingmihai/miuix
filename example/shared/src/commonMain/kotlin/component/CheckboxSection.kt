@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -26,7 +27,7 @@ import top.yukonga.miuix.kmp.theme.MiuixTheme
 
 fun LazyListScope.checkboxSection() {
     item(key = "checkbox") {
-        SmallTitle(text = "Checkbox")
+        SmallTitle(text = str("Checkbox"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
@@ -36,7 +37,7 @@ fun LazyListScope.checkboxSection() {
             CheckboxPreferenceEndDemo()
             CheckboxPreferenceDemo()
             CheckboxPreference(
-                title = "Disabled Checkbox",
+                title = str("Disabled Checkbox"),
                 checked = true,
                 enabled = false,
                 onCheckedChange = {},
@@ -104,7 +105,7 @@ private fun CheckboxPreferenceEndDemo() {
 
     CheckboxPreference(
         checkboxLocation = CheckboxLocation.End,
-        title = "Checkbox",
+        title = str("Checkbox"),
         checked = checked,
         endActions = {
             Text(
@@ -122,8 +123,8 @@ private fun CheckboxPreferenceDemo() {
     var checked by remember { mutableStateOf(false) }
 
     CheckboxPreference(
-        title = "Checkbox",
-        summary = "State: $checked",
+        title = str("Checkbox"),
+        summary = "${str("State")}: $checked",
         checked = checked,
         onCheckedChange = { checked = it },
     )

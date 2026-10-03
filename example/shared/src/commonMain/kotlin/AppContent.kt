@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.animation.AnimatedContent
+import i18n.appLanguage
+import i18n.str
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
@@ -173,13 +175,13 @@ fun AppContent(
     val backStack = rememberNavBackStack<Route>(Route.Main)
     val navigator = remember { Navigator(backStack) }
 
-    val navigationItems = remember {
+    val navigationItems = remember(appLanguage) {
         listOf(
-            NavigationItem(UIConstants.PAGE_TITLES[0], MiuixIcons.Home),
-            NavigationItem(UIConstants.PAGE_TITLES[1], MiuixIcons.Create),
-            NavigationItem(UIConstants.PAGE_TITLES[2], MiuixIcons.Image),
-            NavigationItem(UIConstants.PAGE_TITLES[3], MiuixIcons.Edit),
-            NavigationItem(UIConstants.PAGE_TITLES[4], MiuixIcons.Settings),
+            NavigationItem(str(UIConstants.PAGE_TITLES[0]), MiuixIcons.Home),
+            NavigationItem(str(UIConstants.PAGE_TITLES[1]), MiuixIcons.Create),
+            NavigationItem(str(UIConstants.PAGE_TITLES[2]), MiuixIcons.Image),
+            NavigationItem(str(UIConstants.PAGE_TITLES[3]), MiuixIcons.Edit),
+            NavigationItem(str(UIConstants.PAGE_TITLES[4]), MiuixIcons.Settings),
         )
     }
 
@@ -673,21 +675,21 @@ private fun FloatingToolbar(
                     IconButton(onClick = { /* Action 1 */ }) {
                         Icon(
                             MiuixIcons.Edit,
-                            contentDescription = "Edit",
+                            contentDescription = str("Edit"),
                             tint = iconTint,
                         )
                     }
                     IconButton(onClick = { /* Action 2 */ }) {
                         Icon(
                             MiuixIcons.Delete,
-                            contentDescription = "Delete",
+                            contentDescription = str("Delete"),
                             tint = iconTint,
                         )
                     }
                     IconButton(onClick = { /* Action 3 */ }) {
                         Icon(
                             MiuixIcons.More,
-                            contentDescription = "More",
+                            contentDescription = str("More"),
                             tint = iconTint,
                         )
                     }

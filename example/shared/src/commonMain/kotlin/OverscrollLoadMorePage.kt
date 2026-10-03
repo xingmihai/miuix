@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
+import i18n.str
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -88,7 +89,7 @@ fun OverscrollLoadMorePage(
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Overscroll + Load More",
+                    title = str("Overscroll + Load More"),
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,
@@ -138,13 +139,13 @@ fun OverscrollLoadMorePage(
                         ),
                     ) {
                         Text(
-                            text = "Fling to the bottom fast: new items load while the bounce-back plays. " +
-                                "Fling again — inertial scrolling must keep working.",
+                            text = str("Fling to the bottom fast: new items load while the bounce-back plays. ") +
+                                str("Fling again — inertial scrolling must keep working."),
                             style = MiuixTheme.textStyles.body2,
                             color = MiuixTheme.colorScheme.onSurface,
                         )
                         Text(
-                            text = "Items: $itemCount · Pages loaded: $loadedPages",
+                            text = "${str("Items")}: $itemCount · ${str("Pages loaded")}: $loadedPages",
                             modifier = Modifier.padding(top = 8.dp),
                             style = MiuixTheme.textStyles.body2,
                             color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
@@ -170,7 +171,7 @@ fun OverscrollLoadMorePage(
                             .background(MiuixTheme.colorScheme.surfaceContainer),
                     ) {
                         Text(
-                            text = "Item ${i + 1}",
+                            text = "${str("Item")} ${i + 1}",
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
                             style = MiuixTheme.textStyles.body1,
                             color = MiuixTheme.colorScheme.onSurface,
@@ -196,7 +197,7 @@ fun OverscrollLoadMorePage(
                         ) {
                             InfiniteProgressIndicator(size = 20.dp)
                             Text(
-                                text = "Loading more…",
+                                text = str("Loading more…"),
                                 modifier = Modifier.padding(start = 8.dp),
                                 style = MiuixTheme.textStyles.body2,
                                 color = MiuixTheme.colorScheme.onSurfaceVariantSummary,

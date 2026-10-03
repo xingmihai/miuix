@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
+import i18n.str
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -124,7 +125,7 @@ fun AboutPage(
             )
             BlurredBar(backdrop, blurActive) {
                 SmallTopAppBar(
-                    title = "About",
+                    title = str("About"),
                     scrollBehavior = topAppBarScrollBehavior,
                     color = barColor,
                     titleColor = titleColor,
@@ -363,7 +364,7 @@ private fun AboutContent(
                             ),
                         ) {
                             ArrowPreference(
-                                title = "View Source",
+                                title = str("View Source"),
                                 endActions = {
                                     Text(
                                         text = "GitHub",
@@ -374,7 +375,7 @@ private fun AboutContent(
                                 onClick = { uriHandler.openUri("https://github.com/compose-miuix-ui/miuix") },
                             )
                             ArrowPreference(
-                                title = "Join Group",
+                                title = str("Join Group"),
                                 endActions = {
                                     Text(
                                         text = "Telegram",
@@ -414,7 +415,7 @@ private fun AboutContent(
                             ),
                         ) {
                             ArrowPreference(
-                                title = "License",
+                                title = str("License"),
                                 endActions = {
                                     Text(
                                         text = "Apache-2.0",
@@ -427,7 +428,7 @@ private fun AboutContent(
                                 },
                             )
                             ArrowPreference(
-                                title = "Third Party Licenses",
+                                title = str("Third Party Licenses"),
                                 onClick = { navigator.push(Route.License) },
                             )
                         }
@@ -445,7 +446,7 @@ private fun AboutContent(
 
     OverlayBottomSheet(
         show = showTextureSet,
-        title = "Background Effect",
+        title = str("Background Effect"),
         onDismissRequest = {
             showTextureSet = false
         },
@@ -455,14 +456,14 @@ private fun AboutContent(
             item {
                 val effectVariantOptions = listOf("OS2", "OS3")
                 OverlayDropdownPreference(
-                    title = "Effect Variant",
+                    title = str("Effect Variant"),
                     items = effectVariantOptions,
                     selectedIndex = if (isOs3Effect) 1 else 0,
                     onSelectedIndexChange = { isOs3Effect = (it == 1) },
                 )
 
                 SwitchPreference(
-                    title = "Dynamic Background",
+                    title = str("Dynamic Background"),
                     checked = dynamicBackground.value,
                     onCheckedChange = {
                         dynamicBackground.value = it
@@ -470,7 +471,7 @@ private fun AboutContent(
                 )
 
                 SwitchPreference(
-                    title = "Full Screen Background",
+                    title = str("Full Screen Background"),
                     checked = isFullScreenBackground.value,
                     onCheckedChange = {
                         isFullScreenBackground.value = it

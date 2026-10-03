@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -31,27 +32,27 @@ import kotlin.math.round
 
 fun LazyListScope.colorPickerSection() {
     item(key = "colorPicker-HSV") {
-        SmallTitle(text = "ColorPicker (HSV)")
+        SmallTitle(text = str("ColorPicker (HSV)"))
         ColorPickerCard(colorSpace = ColorSpace.HSV)
     }
 
     item(key = "colorPicker-OKHSV") {
-        SmallTitle(text = "ColorPicker (OKHSV)")
+        SmallTitle(text = str("ColorPicker (OKHSV)"))
         ColorPickerCard(colorSpace = ColorSpace.OKHSV)
     }
 
     item(key = "colorPicker-OKLAB") {
-        SmallTitle(text = "ColorPicker (OKLAB)")
+        SmallTitle(text = str("ColorPicker (OKLAB)"))
         ColorPickerCard(colorSpace = ColorSpace.OKLAB)
     }
 
     item(key = "colorPicker-OKLCH") {
-        SmallTitle(text = "ColorPicker (OKLCH)")
+        SmallTitle(text = str("ColorPicker (OKLCH)"))
         ColorPickerCard(colorSpace = ColorSpace.OKLCH)
     }
 
     item(key = "colorPalette") {
-        SmallTitle(text = "ColorPalette")
+        SmallTitle(text = str("ColorPalette"))
         val miuixColor = MiuixTheme.colorScheme.primary
         var selectedColor by remember { mutableStateOf(miuixColor) }
         var colorHex by remember(selectedColor) {

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
@@ -18,7 +19,7 @@ import top.yukonga.miuix.kmp.preference.RadioButtonPreference
 
 fun LazyListScope.radioButtonSection() {
     item(key = "radioButton") {
-        SmallTitle(text = "RadioButton")
+        SmallTitle(text = str("RadioButton"))
         RadioButtonCardsDemo()
         Card(
             modifier = Modifier
@@ -26,8 +27,8 @@ fun LazyListScope.radioButtonSection() {
                 .padding(bottom = 12.dp),
         ) {
             RadioButtonPreference(
-                title = "Disabled RadioButton",
-                summary = "This option is unavailable",
+                title = str("Disabled RadioButton"),
+                summary = str("This option is unavailable"),
                 selected = true,
                 enabled = false,
                 onClick = {},
@@ -40,7 +41,7 @@ fun LazyListScope.radioButtonSection() {
 private fun RadioButtonCardsDemo() {
     var selectedIndex by remember { mutableIntStateOf(0) }
 
-    listOf("Option A", "Option B", "Option C").forEachIndexed { index, title ->
+    listOf(str("Option A"), str("Option B"), str("Option C")).forEachIndexed { index, title ->
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
@@ -48,7 +49,7 @@ private fun RadioButtonCardsDemo() {
         ) {
             RadioButtonPreference(
                 title = title,
-                summary = "Selected: ${selectedIndex == index}",
+                summary = "${str("Selected")}: ${selectedIndex == index}",
                 selected = selectedIndex == index,
                 onClick = { selectedIndex = index },
             )

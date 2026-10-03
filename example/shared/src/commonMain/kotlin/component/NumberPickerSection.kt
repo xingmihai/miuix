@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -24,7 +25,7 @@ import top.yukonga.miuix.kmp.basic.Text
 
 fun LazyListScope.numberPickerSection() {
     item(key = "numberPicker") {
-        SmallTitle(text = "NumberPicker")
+        SmallTitle(text = str("NumberPicker"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -24,7 +25,7 @@ import top.yukonga.miuix.kmp.basic.SmallTitle
 
 fun LazyListScope.progressIndicatorSection() {
     item(key = "progressIndicator") {
-        SmallTitle(text = "ProgressIndicator")
+        SmallTitle(text = str("ProgressIndicator"))
         val progressValues = listOf(0.0f, 0.25f, 0.5f, 0.75f, 1.0f, null)
         val animatedProgressValue by rememberInfiniteTransition().animateFloat(
             initialValue = 0f,

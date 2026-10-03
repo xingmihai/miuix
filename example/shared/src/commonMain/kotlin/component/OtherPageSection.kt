@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import LocalNavigator
 import androidx.compose.foundation.layout.padding
@@ -17,36 +18,36 @@ import kotlin.random.Random
 fun LazyListScope.otherPageSection() {
     item(key = "other") {
         val navigator = LocalNavigator.current
-        SmallTitle(text = "Other")
+        SmallTitle(text = str("Other"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp),
         ) {
             ArrowPreference(
-                title = "PullToRefresh Test",
-                summary = "Navigate to a PullToRefresh Page",
+                title = str("PullToRefresh Test"),
+                summary = str("Navigate to a PullToRefresh Page"),
                 onClick = {
                     navigator.push(Route.PullToRefresh)
                 },
             )
             ArrowPreference(
-                title = "Navigation test",
-                summary = "Navigate to a Navigation Page",
+                title = str("Navigation test"),
+                summary = str("Navigate to a Navigation Page"),
                 onClick = { navigator.push(Route.Navigation(Random.nextLong().toString())) },
             )
             ArrowPreference(
-                title = "MultiScaffold Test",
-                summary = "Navigate to a MultiScaffold Page",
+                title = str("MultiScaffold Test"),
+                summary = str("Navigate to a MultiScaffold Page"),
                 onClick = { navigator.push(Route.MultiScaffold) },
             )
             ArrowPreference(
-                title = "Nested Navigation Test",
-                summary = "A NavDisplay nested inside an entry",
+                title = str("Nested Navigation Test"),
+                summary = str("A NavDisplay nested inside an entry"),
                 onClick = { navigator.push(Route.NestedNav) },
             )
             ArrowPreference(
-                title = "Overscroll + Load More Test",
-                summary = "Fling to the bottom, then fling again",
+                title = str("Overscroll + Load More Test"),
+                summary = str("Fling to the bottom, then fling again"),
                 onClick = { navigator.push(Route.OverscrollLoadMore) },
             )
         }

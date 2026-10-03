@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
+import i18n.appLanguage
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -22,12 +24,12 @@ import top.yukonga.miuix.kmp.basic.TextButton
 
 fun LazyListScope.buttonSection() {
     item(key = "button") {
-        var buttonText by remember { mutableStateOf("Cancel") }
-        var submitButtonText by remember { mutableStateOf("Submit") }
+        var buttonText by remember(appLanguage) { mutableStateOf(str("Cancel")) }
+        var submitButtonText by remember(appLanguage) { mutableStateOf(str("Submit")) }
         var clickCount by remember { mutableIntStateOf(0) }
         var submitClickCount by remember { mutableIntStateOf(0) }
 
-        SmallTitle(text = "Button")
+        SmallTitle(text = str("Button"))
         Row(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
@@ -38,7 +40,7 @@ fun LazyListScope.buttonSection() {
                 text = buttonText,
                 onClick = {
                     clickCount++
-                    buttonText = "Click: $clickCount"
+                    buttonText = "${str("Click")}: $clickCount"
                 },
                 modifier = Modifier.weight(1f),
             )
@@ -47,7 +49,7 @@ fun LazyListScope.buttonSection() {
                 text = submitButtonText,
                 onClick = {
                     submitClickCount++
-                    submitButtonText = "Click: $submitClickCount"
+                    submitButtonText = "${str("Click")}: $submitClickCount"
                 },
                 modifier = Modifier.weight(1f),
                 colors = ButtonDefaults.textButtonColorsPrimary(),
@@ -60,14 +62,14 @@ fun LazyListScope.buttonSection() {
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             TextButton(
-                text = "Disabled",
+                text = str("Disabled"),
                 onClick = {},
                 modifier = Modifier.weight(1f),
                 enabled = false,
             )
             Spacer(Modifier.width(12.dp))
             TextButton(
-                text = "Disabled",
+                text = str("Disabled"),
                 onClick = {},
                 enabled = false,
                 modifier = Modifier.weight(1f),

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
+import i18n.str
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,7 +71,7 @@ fun NavTestPage(
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Navigate Test $index",
+                    title = "${str("Navigate Test")} $index",
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,
@@ -106,15 +107,15 @@ fun NavTestPage(
                 item(key = "nav_continuous") {
                     val navigator = LocalNavigator.current
                     Column {
-                        SmallTitle(text = "Continuous depth")
+                        SmallTitle(text = str("Continuous depth"))
                         Card(modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp)) {
                             ArrowPreference(
-                                title = "Push another Navigation page",
+                                title = str("Push another Navigation page"),
                                 summary = "Single push (animatedTop N -> N+1)",
                                 onClick = { navigator.push(Route.Navigation(Random.nextLong().toString())) },
                             )
                             ArrowPreference(
-                                title = "Push three pages at once",
+                                title = str("Push three pages at once"),
                                 summary = "Continuous multi-push (N -> N+3, one shared spring)",
                                 onClick = {
                                     navigator.push(Route.Navigation(Random.nextLong().toString()))
@@ -123,8 +124,8 @@ fun NavTestPage(
                                 },
                             )
                             ArrowPreference(
-                                title = "Pop all Navigation pages",
-                                summary = "Continuous multi-pop back to the entry",
+                                title = str("Pop all Navigation pages"),
+                                summary = str("Continuous multi-pop back to the entry"),
                                 onClick = { navigator.popUntil { it !is Route.Navigation } },
                             )
                         }
@@ -132,28 +133,28 @@ fun NavTestPage(
                 }
                 item(key = "nav_gesture") {
                     Column {
-                        SmallTitle(text = "Gesture back")
+                        SmallTitle(text = str("Gesture back"))
                         Card(modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp)) {
                             BasicComponent(
-                                title = "Swipe to go back",
-                                summary = "Turn on \"Enable Swipe Back\" in Settings, then swipe a pushed page to " +
-                                    "pop it. Stack several pages with continuous push above and drag back through " +
-                                    "them; the gesture drives the same animatedTop spring.",
+                                title = str("Swipe to go back"),
+                                summary = str("Turn on \"Enable Swipe Back\" in Settings, then swipe a pushed page to ") +
+                                    str("pop it. Stack several pages with continuous push above and drag back through ") +
+                                    str("them; the gesture drives the same animatedTop spring."),
                             )
                         }
                     }
                 }
                 item(key = "nav_layout") {
-                    SmallTitle(text = "Layout test")
+                    SmallTitle(text = str("Layout test"))
                     Card(
                         modifier = Modifier
                             .padding(horizontal = 12.dp),
                     ) {
                         ArrowPreference(
-                            title = "Long Long Long Long Long Title",
-                            summary = "Summary",
+                            title = str("Long Long Long Long Long Title"),
+                            summary = str("Summary"),
                             startAction = {
-                                Text(text = "Start")
+                                Text(text = str("Start"))
                             },
                             endActions = {
                                 Text(text = "End1", textAlign = TextAlign.End)
@@ -164,10 +165,10 @@ fun NavTestPage(
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Title",
-                            summary = "Long Long Long Long Long Summary",
+                            title = str("Title"),
+                            summary = str("Long Long Long Long Long Summary"),
                             startAction = {
-                                Text(text = "Start")
+                                Text(text = str("Start"))
                             },
                             endActions = {
                                 Text(text = "End1", textAlign = TextAlign.End)
@@ -178,14 +179,14 @@ fun NavTestPage(
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Title",
-                            summary = "Summary",
+                            title = str("Title"),
+                            summary = str("Summary"),
                             startAction = {
-                                Text(text = "Start")
+                                Text(text = str("Start"))
                             },
                             endActions = {
                                 Text(
-                                    text = "Long Long Long Long Long End",
+                                    text = str("Long Long Long Long Long End"),
                                     textAlign = TextAlign.End,
                                 )
                             },
@@ -193,14 +194,14 @@ fun NavTestPage(
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Long Long Long Long Long Title",
-                            summary = "Summary",
+                            title = str("Long Long Long Long Long Title"),
+                            summary = str("Summary"),
                             startAction = {
-                                Text(text = "Start")
+                                Text(text = str("Start"))
                             },
                             endActions = {
                                 Text(
-                                    text = "Long Long Long Long Long End",
+                                    text = str("Long Long Long Long Long End"),
                                     textAlign = TextAlign.End,
                                 )
                             },
@@ -208,11 +209,11 @@ fun NavTestPage(
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Title",
-                            summary = "Long Long Long Long Long Summary",
+                            title = str("Title"),
+                            summary = str("Long Long Long Long Long Summary"),
                             endActions = {
                                 Text(
-                                    text = "Long Long Long Long Long End",
+                                    text = str("Long Long Long Long Long End"),
                                     textAlign = TextAlign.End,
                                 )
                             },
@@ -220,19 +221,19 @@ fun NavTestPage(
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Long Long Long Long Long Title",
-                            summary = "Summary",
+                            title = str("Long Long Long Long Long Title"),
+                            summary = str("Summary"),
                             endActions = {
-                                Text(text = "Long Long Long Long Long End", textAlign = TextAlign.End)
+                                Text(text = str("Long Long Long Long Long End"), textAlign = TextAlign.End)
                             },
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
                         ArrowPreference(
-                            title = "Title",
-                            summary = "Long Long Long Long Long Summary",
+                            title = str("Title"),
+                            summary = str("Long Long Long Long Long Summary"),
                             endActions = {
-                                Text(text = "Long Long Long Long Long End", textAlign = TextAlign.End)
+                                Text(text = str("Long Long Long Long Long End"), textAlign = TextAlign.End)
                             },
                             onClick = { /* Do nothing */ },
                             enabled = true,

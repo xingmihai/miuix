@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
+import i18n.str
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -60,7 +61,7 @@ fun MultiScaffoldTestPage(
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Multi-Scaffold Test",
+                    title = str("Multi-Scaffold Test"),
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,
@@ -109,12 +110,12 @@ fun MultiScaffoldTestPage(
                         .background(MiuixTheme.colorScheme.surfaceVariant),
                 ) {
                     Column {
-                        SmallTitle(text = "Top Left")
+                        SmallTitle(text = str("Top Left"))
                         Card(
                             modifier = Modifier.padding(horizontal = 12.dp),
                         ) {
                             OverlayDropdownPreference(
-                                title = "Dropdown",
+                                title = str("Dropdown"),
                                 items = dropdownOptions,
                                 selectedIndex = topLeftSelected.intValue,
                                 onSelectedIndexChange = { index -> topLeftSelected.intValue = index },
@@ -129,12 +130,12 @@ fun MultiScaffoldTestPage(
                         .background(MiuixTheme.colorScheme.surfaceVariant),
                 ) {
                     Column {
-                        SmallTitle(text = "Top Right")
+                        SmallTitle(text = str("Top Right"))
                         Card(
                             modifier = Modifier.padding(horizontal = 12.dp),
                         ) {
                             OverlayDropdownPreference(
-                                title = "Dropdown",
+                                title = str("Dropdown"),
                                 items = dropdownOptions,
                                 selectedIndex = topRightSelected.intValue,
                                 onSelectedIndexChange = { index -> topRightSelected.intValue = index },
@@ -154,12 +155,12 @@ fun MultiScaffoldTestPage(
                         .background(MiuixTheme.colorScheme.surfaceVariant),
                 ) {
                     Column {
-                        SmallTitle(text = "Bottom Left")
+                        SmallTitle(text = str("Bottom Left"))
                         Card(
                             modifier = Modifier.padding(horizontal = 12.dp),
                         ) {
                             OverlayDropdownPreference(
-                                title = "Dropdown",
+                                title = str("Dropdown"),
                                 items = dropdownOptions,
                                 selectedIndex = bottomLeftSelected.intValue,
                                 onSelectedIndexChange = { index -> bottomLeftSelected.intValue = index },
@@ -174,12 +175,12 @@ fun MultiScaffoldTestPage(
                         .background(MiuixTheme.colorScheme.surfaceVariant),
                 ) {
                     Column {
-                        SmallTitle(text = "Bottom Right")
+                        SmallTitle(text = str("Bottom Right"))
                         Card(
                             modifier = Modifier.padding(horizontal = 12.dp),
                         ) {
                             OverlayDropdownPreference(
-                                title = "Dropdown",
+                                title = str("Dropdown"),
                                 items = dropdownOptions,
                                 selectedIndex = bottomRightSelected.intValue,
                                 onSelectedIndexChange = { index -> bottomRightSelected.intValue = index },

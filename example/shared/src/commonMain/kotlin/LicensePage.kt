@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
+import i18n.str
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -82,7 +83,7 @@ fun LicensePage(
         topBar = {
             BlurredBar(backdrop, blurActive) {
                 AdaptiveTopAppBar(
-                    title = "Third Party Licenses",
+                    title = str("Third Party Licenses"),
                     showTopAppBar = appState.showTopAppBar,
                     isWideScreen = isWideScreen,
                     scrollBehavior = topAppBarScrollBehavior,

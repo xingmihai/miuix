@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
@@ -29,7 +30,7 @@ fun LazyListScope.textFieldSection() {
         val text3 = rememberTextFieldState(initialText = "")
         var text4 by remember { mutableStateOf("") }
 
-        SmallTitle(text = "TextField")
+        SmallTitle(text = str("TextField"))
         TextField(
             value = text1,
             onValueChange = { text1 = it },
@@ -42,7 +43,7 @@ fun LazyListScope.textFieldSection() {
         TextField(
             value = text2,
             onValueChange = { text2 = it },
-            label = "With title",
+            label = str("With title"),
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
@@ -51,7 +52,7 @@ fun LazyListScope.textFieldSection() {
         )
         TextField(
             state = text3,
-            label = "State-based",
+            label = str("State-based"),
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
@@ -61,7 +62,7 @@ fun LazyListScope.textFieldSection() {
         TextField(
             value = text4,
             onValueChange = { text4 = it },
-            label = "Placeholder & SingleLine",
+            label = str("Placeholder & SingleLine"),
             useLabelAsPlaceholder = true,
             singleLine = true,
             modifier = Modifier

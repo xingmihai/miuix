@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -17,18 +18,18 @@ import top.yukonga.miuix.kmp.theme.MiuixTheme
 
 fun LazyListScope.basicComponentSection() {
     item(key = "basicComponent") {
-        SmallTitle(text = "Basic Component")
+        SmallTitle(text = str("Basic Component"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
         ) {
             BasicComponent(
-                title = "Title",
-                summary = "Summary",
+                title = str("Title"),
+                summary = str("Summary"),
                 startAction = {
                     Text(
-                        text = "Start",
+                        text = str("Start"),
                     )
                 },
                 endActions = {
@@ -47,11 +48,11 @@ fun LazyListScope.basicComponentSection() {
                 enabled = true,
             )
             BasicComponent(
-                title = "Title",
-                summary = "Summary",
+                title = str("Title"),
+                summary = str("Summary"),
                 startAction = {
                     Text(
-                        text = "Start",
+                        text = str("Start"),
                         color = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
                     )
                 },

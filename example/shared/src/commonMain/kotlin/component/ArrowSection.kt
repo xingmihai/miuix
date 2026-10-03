@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.str
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -40,28 +41,28 @@ fun LazyListScope.arrowSection() {
         val showVolumeDialog = rememberSaveable { mutableStateOf(false) }
         val volumeDialogHoldDown = rememberSaveable { mutableStateOf(false) }
 
-        SmallTitle(text = "Arrow")
+        SmallTitle(text = str("Arrow"))
         Card(
             modifier = Modifier
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
         ) {
             ArrowPreference(
-                title = "Arrow",
+                title = str("Arrow"),
                 startAction = {
                     Box(
                         modifier = Modifier.padding(end = 8.dp),
                     ) {
                         Icon(
                             imageVector = MiuixIcons.Contacts,
-                            contentDescription = "Personal",
+                            contentDescription = str("Personal"),
                             tint = MiuixTheme.colorScheme.onBackground,
                         )
                     }
                 },
                 endActions = {
                     Text(
-                        text = "End",
+                        text = str("End"),
                         fontSize = MiuixTheme.textStyles.body2.fontSize,
                         color = MiuixTheme.colorScheme.onSurfaceVariantActions,
                     )
@@ -69,7 +70,7 @@ fun LazyListScope.arrowSection() {
                 onClick = {},
             )
             SliderPreference(
-                title = "Volume",
+                title = str("Volume"),
                 valueText = "${(volume * 100).toInt()}%",
                 value = volume,
                 onValueChange = { volume = it },
@@ -80,10 +81,10 @@ fun LazyListScope.arrowSection() {
                 holdDownState = volumeDialogHoldDown.value,
             )
             ArrowPreference(
-                title = "Disabled Arrow",
+                title = str("Disabled Arrow"),
                 endActions = {
                     Text(
-                        text = "End",
+                        text = str("End"),
                         fontSize = MiuixTheme.textStyles.body2.fontSize,
                         color = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
                     )
@@ -110,8 +111,8 @@ private fun SliderDialog(
 ) {
     OverlayDialog(
         show = showDialog.value,
-        title = "Adjust Volume",
-        summary = "Enter 0-100",
+        title = str("Adjust Volume"),
+        summary = str("Enter 0-100"),
         onDismissRequest = {
             showDialog.value = false
         },
@@ -136,13 +137,13 @@ private fun SliderDialog(
             )
             Row(horizontalArrangement = Arrangement.SpaceBetween) {
                 TextButton(
-                    text = "Cancel",
+                    text = str("Cancel"),
                     onClick = { showDialog.value = false },
                     modifier = Modifier.weight(1f),
                 )
                 Spacer(Modifier.width(20.dp))
                 TextButton(
-                    text = "Confirm",
+                    text = str("Confirm"),
                     onClick = {
                         val parsed = text.toIntOrNull()
                         val clamped = parsed?.coerceIn(0, 100) ?: ((volumeState() * 100).toInt())

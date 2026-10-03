@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package utils
+import i18n.str
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -108,7 +109,7 @@ fun FPSMonitor(modifier: Modifier = Modifier) {
                 val secondary = MiuixTheme.colorScheme.onSurfaceSecondary
                 Text(
                     text = buildAnnotatedString {
-                        withStyle(SpanStyle(color = secondary)) { append("AVG ") }
+                        withStyle(SpanStyle(color = secondary)) { append(str("AVG ")) }
                         withStyle(SpanStyle(color = avgColor)) { append(stats.avg.toString()) }
                     },
                     style = MiuixTheme.textStyles.body2,
@@ -120,7 +121,7 @@ fun FPSMonitor(modifier: Modifier = Modifier) {
                 )
                 Text(
                     text = buildAnnotatedString {
-                        withStyle(SpanStyle(color = secondary)) { append("LOW ") }
+                        withStyle(SpanStyle(color = secondary)) { append(str("LOW ")) }
                         withStyle(SpanStyle(color = lowColor)) { append(stats.low1.toString()) }
                     },
                     style = MiuixTheme.textStyles.body2,

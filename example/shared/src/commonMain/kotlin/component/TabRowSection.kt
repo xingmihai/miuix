@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
+import i18n.appLanguage
+import i18n.str
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,9 +31,9 @@ import top.yukonga.miuix.kmp.utils.springAnimateToPage
 
 fun LazyListScope.tabRowSection() {
     item(key = "tabRow") {
-        SmallTitle(text = "TabRow")
-        val tabTexts = remember { listOf("Tab 1", "Tab 2", "Tab 3") }
-        val tabTexts1 = remember { listOf("Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5", "Tab 6") }
+        SmallTitle(text = str("TabRow"))
+        val tabTexts = remember(appLanguage) { listOf(str("Tab 1"), str("Tab 2"), str("Tab 3")) }
+        val tabTexts1 = remember(appLanguage) { listOf(str("Tab 1"), str("Tab 2"), str("Tab 3"), str("Tab 4"), str("Tab 5"), str("Tab 6")) }
         var selectedTabIndex by remember { mutableIntStateOf(0) }
         val tabListState = rememberLazyListState()
         TabRow(
@@ -79,7 +81,7 @@ fun LazyListScope.tabRowSection() {
                 key = { it },
                 pageContent = { page ->
                     Text(
-                        text = "Content of ${tabTexts1[page]}",
+                        text = "${str("Content of")} ${tabTexts1[page]}",
                         modifier = Modifier
                             .fillMaxWidth(),
                     )
