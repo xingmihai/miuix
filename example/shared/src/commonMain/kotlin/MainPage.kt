@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
-import i18n.str
-import i18n.appLanguage
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -52,6 +50,8 @@ import component.switchSection
 import component.tabRowSection
 import component.textFieldSection
 import component.tooltipSection
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.BasicComponent
 import top.yukonga.miuix.kmp.basic.DropdownEntry
 import top.yukonga.miuix.kmp.basic.DropdownItem
@@ -349,7 +349,7 @@ fun MainPage(
                     ) {
                         Column {
                             repeat(4) { idx ->
-                                val resultText = "${str("Suggestion")} $idx"
+                                val resultText = "${ str("Suggestion") } $idx"
                                 BasicComponent(
                                     title = resultText,
                                     onClick = {

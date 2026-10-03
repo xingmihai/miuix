@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.appLanguage
-import i18n.str
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +18,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import kotlinx.coroutines.launch
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.SmallTitle
@@ -81,7 +81,7 @@ fun LazyListScope.tabRowSection() {
                 key = { it },
                 pageContent = { page ->
                     Text(
-                        text = "${str("Content of")} ${tabTexts1[page]}",
+                        text = "${ str("Content of") } ${tabTexts1[page]}",
                         modifier = Modifier
                             .fillMaxWidth(),
                     )

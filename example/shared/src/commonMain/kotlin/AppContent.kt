@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.animation.AnimatedContent
-import i18n.appLanguage
-import i18n.str
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
@@ -65,6 +63,8 @@ import androidx.navigationevent.NavigationEventInfo
 import androidx.navigationevent.compose.NavigationBackHandler
 import androidx.navigationevent.compose.rememberNavigationEventState
 import component.liquid.IosLiquidGlassNavigationBar
+import i18n.appLanguage
+import i18n.str
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.job

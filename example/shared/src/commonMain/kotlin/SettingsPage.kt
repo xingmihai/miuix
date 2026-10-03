@@ -2,9 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
-import i18n.AppLanguage
-import i18n.appLanguage
-import i18n.str
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
@@ -21,6 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import i18n.AppLanguage
+import i18n.appLanguage
+import i18n.str
 import misc.VersionInfo
 import navigation.Route
 import top.yukonga.miuix.kmp.basic.Card
@@ -137,14 +137,14 @@ private fun SettingsContent(
                     )
                     OverlayDropdownPreference(
                         title = str("Color Mode"),
-                        items = ColorModeOptions.map { str(it)},
+                        items = ColorModeOptions.map { str(it) },
                         selectedIndex = appState.colorMode,
                         onSelectedIndexChange = { updateAppState { state -> state.copy(colorMode = it) } },
                     )
                     AnimatedVisibility(visible = appState.colorMode in 3..5) {
                         OverlayDropdownPreference(
                             title = str("Key Color"),
-                            items = KeyColorOptions.map { str(it)},
+                            items = KeyColorOptions.map { str(it) },
                             selectedIndex = appState.seedIndex,
                             onSelectedIndexChange = { updateAppState { state -> state.copy(seedIndex = it) } },
                         )
@@ -192,7 +192,7 @@ private fun SettingsContent(
                     AnimatedVisibility(visible = appState.enablePageUserScroll) {
                         OverlayDropdownPreference(
                             title = str("Pager Gesture Mode"),
-                            items = PagerGestureModeOptions.map { str(it)},
+                            items = PagerGestureModeOptions.map { str(it) },
                             selectedIndex = appState.pagerInterceptionMode,
                             onSelectedIndexChange = { updateAppState { state -> state.copy(pagerInterceptionMode = it) } },
                         )
@@ -205,7 +205,7 @@ private fun SettingsContent(
                     AnimatedVisibility(visible = appState.showTopAppBar && appState.enableBlur && isRuntimeShaderSupported()) {
                         OverlayDropdownPreference(
                             title = str("TopAppBar Blur Style"),
-                            items = BlurStyleOptions.map { str(it)},
+                            items = BlurStyleOptions.map { str(it) },
                             selectedIndex = appState.blurStyle,
                             onSelectedIndexChange = { updateAppState { state -> state.copy(blurStyle = it) } },
                         )
@@ -225,7 +225,7 @@ private fun SettingsContent(
                     AnimatedVisibility(visible = appState.showNavigationBar && !isWideScreen && !appState.useFloatingNavigationBar) {
                         OverlayDropdownPreference(
                             title = str("NavigationBar Mode"),
-                            items = NavigationBarDisplayModeOptions.map { str(it)},
+                            items = NavigationBarDisplayModeOptions.map { str(it) },
                             selectedIndex = appState.navigationBarMode,
                             onSelectedIndexChange = { updateAppState { state -> state.copy(navigationBarMode = it) } },
                         )
@@ -241,7 +241,7 @@ private fun SettingsContent(
                                 Column {
                                     OverlayDropdownPreference(
                                         title = str("FloatingNavigationBar Style"),
-                                        items = FloatingNavigationBarStyleOptions.map { str(it)},
+                                        items = FloatingNavigationBarStyleOptions.map { str(it) },
                                         selectedIndex = appState.floatingNavigationBarStyle,
                                         onSelectedIndexChange = { updateAppState { state -> state.copy(floatingNavigationBarStyle = it) } },
                                     )
@@ -249,7 +249,7 @@ private fun SettingsContent(
                                         Column {
                                             OverlayDropdownPreference(
                                                 title = str("FloatingNavigationBar Position"),
-                                                items = FloatingNavigationBarPositionOptions.map { str(it)},
+                                                items = FloatingNavigationBarPositionOptions.map { str(it) },
                                                 selectedIndex = appState.floatingNavigationBarPosition,
                                                 onSelectedIndexChange = { updateAppState { state -> state.copy(floatingNavigationBarPosition = it) } },
                                             )
@@ -268,13 +268,13 @@ private fun SettingsContent(
                         Column {
                             OverlayDropdownPreference(
                                 title = str("FloatingToolbar Position"),
-                                items = FloatingToolbarPositionOptions.map { str(it)},
+                                items = FloatingToolbarPositionOptions.map { str(it) },
                                 selectedIndex = appState.floatingToolbarPosition,
                                 onSelectedIndexChange = { updateAppState { state -> state.copy(floatingToolbarPosition = it) } },
                             )
                             OverlayDropdownPreference(
                                 title = str("FloatingToolbar Orientation"),
-                                items = FloatingToolbarOrientationOptions.map { str(it)},
+                                items = FloatingToolbarOrientationOptions.map { str(it) },
                                 selectedIndex = appState.floatingToolbarOrientation,
                                 onSelectedIndexChange = { updateAppState { state -> state.copy(floatingToolbarOrientation = it) } },
                             )
@@ -288,7 +288,7 @@ private fun SettingsContent(
                     AnimatedVisibility(visible = appState.showFloatingActionButton) {
                         OverlayDropdownPreference(
                             title = str("FloatingActionButton Position"),
-                            items = FabPositionOptions.map { str(it)},
+                            items = FabPositionOptions.map { str(it) },
                             selectedIndex = appState.floatingActionButtonPosition,
                             onSelectedIndexChange = { updateAppState { state -> state.copy(floatingActionButtonPosition = it) } },
                         )
@@ -302,7 +302,7 @@ private fun SettingsContent(
                 ) {
                     OverlayDropdownPreference(
                         title = str("Transition Style"),
-                        items = NavTransitionStyleOptions.map { str(it)},
+                        items = NavTransitionStyleOptions.map { str(it) },
                         selectedIndex = appState.navTransitionStyle,
                         onSelectedIndexChange = { updateAppState { state -> state.copy(navTransitionStyle = it) } },
                     )

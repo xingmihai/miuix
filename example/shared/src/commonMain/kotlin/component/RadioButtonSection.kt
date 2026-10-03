@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
@@ -13,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.SmallTitle
 import top.yukonga.miuix.kmp.preference.RadioButtonPreference
@@ -49,7 +49,7 @@ private fun RadioButtonCardsDemo() {
         ) {
             RadioButtonPreference(
                 title = title,
-                summary = "${str("Selected")}: ${selectedIndex == index}",
+                summary = "${ str("Selected") }: ${selectedIndex == index}",
                 selected = selectedIndex == index,
                 onClick = { selectedIndex = index },
             )

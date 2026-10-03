@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -17,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.Checkbox
 import top.yukonga.miuix.kmp.basic.SmallTitle
@@ -124,7 +124,7 @@ private fun CheckboxPreferenceDemo() {
 
     CheckboxPreference(
         title = str("Checkbox"),
-        summary = "${str("State")}: $checked",
+        summary = "${ str("State") }: $checked",
         checked = checked,
         onCheckedChange = { checked = it },
     )

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
-import i18n.str
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -33,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import i18n.str
 import kotlinx.coroutines.delay
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.CardDefaults
@@ -168,12 +168,12 @@ fun PullToRefreshPage(
                                 onClick = { showSettings = true },
                             ) {
                                 Text(
-                                    text = "${str("Pull Progress")}: ${(currentPullProgress * 100).toInt()}%",
+                                    text = "${ str("Pull Progress") }: ${(currentPullProgress * 100).toInt()}%",
                                     style = MiuixTheme.textStyles.body1,
                                     color = MiuixTheme.colorScheme.onSurface,
                                 )
                                 Text(
-                                    text = "${str("Threshold")}: ${(thresholdValue * 100).toInt()}%",
+                                    text = "${ str("Threshold") }: ${(thresholdValue * 100).toInt()}%",
                                     style = MiuixTheme.textStyles.body2,
                                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                                 )
@@ -199,7 +199,7 @@ fun PullToRefreshPage(
                             ) {
                                 if (i % 2 == 0) {
                                     OverlayDropdownPreference(
-                                        title = "${str("OverlayDropdownPref")} ${i + 1}",
+                                        title = "${ str("OverlayDropdownPref") } ${i + 1}",
                                         items = dropdownOptions,
                                         selectedIndex = dropdownSelectedOption,
                                         onSelectedIndexChange = { newOption ->
@@ -208,7 +208,7 @@ fun PullToRefreshPage(
                                     )
                                 } else {
                                     WindowDropdownPreference(
-                                        title = "${str("WindowDropdownPref")} ${i + 1}",
+                                        title = "${ str("WindowDropdownPref") } ${i + 1}",
                                         items = dropdownOptions,
                                         selectedIndex = dropdownSelectedOption,
                                         onSelectedIndexChange = { newOption ->
@@ -245,7 +245,7 @@ fun PullToRefreshPage(
                 summary = if (thresholdValue == 0f) {
                     str("Any pull triggers refresh.")
                 } else {
-                    "${str("Pull")} ${(thresholdValue * 100).toInt()}% ${str("of the drag range to refresh.")}"
+                    "${ str("Pull") } ${(thresholdValue * 100).toInt()}% ${ str("of the drag range to refresh.") }"
                 },
                 value = thresholdValue,
                 onValueChange = { thresholdValue = it },

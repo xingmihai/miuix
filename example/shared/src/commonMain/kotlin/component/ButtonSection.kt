@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
-import i18n.appLanguage
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -18,6 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.ButtonDefaults
 import top.yukonga.miuix.kmp.basic.SmallTitle
 import top.yukonga.miuix.kmp.basic.TextButton
@@ -40,7 +40,7 @@ fun LazyListScope.buttonSection() {
                 text = buttonText,
                 onClick = {
                     clickCount++
-                    buttonText = "${str("Click")}: $clickCount"
+                    buttonText = "${ str("Click") }: $clickCount"
                 },
                 modifier = Modifier.weight(1f),
             )
@@ -49,7 +49,7 @@ fun LazyListScope.buttonSection() {
                 text = submitButtonText,
                 onClick = {
                     submitClickCount++
-                    submitButtonText = "${str("Click")}: $submitClickCount"
+                    submitButtonText = "${ str("Click") }: $submitClickCount"
                 },
                 modifier = Modifier.weight(1f),
                 colors = ButtonDefaults.textButtonColorsPrimary(),

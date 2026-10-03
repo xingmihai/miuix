@@ -2,9 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
-import i18n.str
-import i18n.AppLanguage
-import i18n.appLanguage
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -44,6 +41,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import component.SearchBarFake
 import component.SearchPager
+import i18n.AppLanguage
+import i18n.appLanguage
+import i18n.str
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import top.yukonga.miuix.kmp.basic.BasicComponent

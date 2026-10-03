@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
-import i18n.appLanguage
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.BreadcrumbBar
 import top.yukonga.miuix.kmp.basic.BreadcrumbItem
 import top.yukonga.miuix.kmp.basic.Card
@@ -66,11 +66,11 @@ fun LazyListScope.breadcrumbBarSection() {
                     modifier = Modifier.fillMaxWidth(),
                 )
                 Text(
-                    text = "${str("Full path")}: ${items.joinToPath()}",
+                    text = "${ str("Full path") }: ${items.joinToPath()}",
                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 Text(
-                    text = "${str("Current")}: ${items.subList(0, highlightIndex + 1).joinToPath()}",
+                    text = "${ str("Current") }: ${items.subList(0, highlightIndex + 1).joinToPath()}",
                     color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 BreadcrumbBar(

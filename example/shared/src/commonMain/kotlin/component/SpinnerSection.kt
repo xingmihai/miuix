@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
-import i18n.appLanguage
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
@@ -20,6 +18,8 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import i18n.appLanguage
+import i18n.str
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.DropdownEntry
 import top.yukonga.miuix.kmp.basic.DropdownItem
@@ -293,7 +293,7 @@ private fun groupedSpinnerOptions(
     DropdownEntry(
         items = spinnerOptions.mapIndexed { index, item ->
             item.copy(
-                text = "${str("Option")} ${index + 1}",
+                text = "${ str("Option") } ${index + 1}",
                 enabled = index % 2 == 0,
                 selected = group3SelectedIndex == index,
                 onClick = {

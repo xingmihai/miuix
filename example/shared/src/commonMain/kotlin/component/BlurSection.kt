@@ -2,8 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 package component
-import i18n.str
-import i18n.appLanguage
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -36,6 +34,8 @@ import component.blend.ColorBlendToken
 import component.effect.BgEffectBackground
 import component.highlight.HighlightConfig
 import component.highlight.rememberContainerHighlight
+import i18n.appLanguage
+import i18n.str
 import org.jetbrains.compose.resources.painterResource
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.HorizontalDivider
@@ -154,7 +154,7 @@ private fun ProgressiveBlurDemo() {
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
-                        text = "${str("Progressive Blur")}\n${directionItems[directionIndex]} | R=${blurRadius.toInt()} | ${currentBlend.first}",
+                        text = "${ str("Progressive Blur") }\n${directionItems[directionIndex]} | R=${blurRadius.toInt()} | ${currentBlend.first}",
                         style = MiuixTheme.textStyles.headline2,
                         textAlign = TextAlign.Center,
                         color = Color.White,
@@ -309,7 +309,7 @@ private fun BlurDemo() {
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            text = "${str("Texture Blur")} | R=${blurRadiusX.toInt()}",
+                            text = "${ str("Texture Blur") } | R=${blurRadiusX.toInt()}",
                             style = MiuixTheme.textStyles.headline2,
                         )
                         Spacer(Modifier.height(4.dp))

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
-import i18n.str
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,6 +30,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import i18n.str
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
 import top.yukonga.miuix.kmp.basic.Card
@@ -145,7 +145,7 @@ fun OverscrollLoadMorePage(
                             color = MiuixTheme.colorScheme.onSurface,
                         )
                         Text(
-                            text = "${str("Items")}: $itemCount · ${str("Pages loaded")}: $loadedPages",
+                            text = "${ str("Items") }: $itemCount · ${ str("Pages loaded") }: $loadedPages",
                             modifier = Modifier.padding(top = 8.dp),
                             style = MiuixTheme.textStyles.body2,
                             color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
@@ -171,7 +171,7 @@ fun OverscrollLoadMorePage(
                             .background(MiuixTheme.colorScheme.surfaceContainer),
                     ) {
                         Text(
-                            text = "${str("Item")} ${i + 1}",
+                            text = "${ str("Item") } ${i + 1}",
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
                             style = MiuixTheme.textStyles.body1,
                             color = MiuixTheme.colorScheme.onSurface,

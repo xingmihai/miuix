@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
-import i18n.str
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -49,6 +48,7 @@ import androidx.compose.ui.unit.sp
 import component.BackNavigationIcon
 import component.blend.ColorBlendToken
 import component.effect.BgEffectBackground
+import i18n.str
 import misc.VersionInfo
 import navigation.Route
 import org.jetbrains.compose.resources.painterResource
